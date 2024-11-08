@@ -56,7 +56,7 @@ namespace esphome
   class EHMTXNextClockTrigger;
   class EHMTXStartRunningTrigger;
 
-  class EHMTX : public PollingComponent, public api::CustomAPIDevice
+  class EHMTX : public PollingComponent
   {
   protected:
     float get_setup_priority() const override { return esphome::setup_priority::LATE; }
