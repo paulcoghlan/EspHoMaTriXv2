@@ -308,54 +308,6 @@ namespace esphome
 
   void EHMTX::setup()
   {
-    ESP_LOGD(TAG, "Setting up services");
-    register_service(&EHMTX::get_status, "get_status");
-    register_service(&EHMTX::set_display_on, "display_on");
-    register_service(&EHMTX::set_display_off, "display_off");
-    register_service(&EHMTX::hold_screen, "hold_screen", {"time"});
-    register_service(&EHMTX::hide_rindicator, "hide_rindicator");
-    register_service(&EHMTX::hide_lindicator, "hide_lindicator");
-    register_service(&EHMTX::hide_gauge, "hide_gauge");
-    register_service(&EHMTX::hide_alarm, "hide_alarm");
-    register_service(&EHMTX::show_gauge, "show_gauge", {"percent", "r", "g", "b", "bg_r", "bg_g", "bg_b"});
-    register_service(&EHMTX::show_alarm, "show_alarm", {"r", "g", "b", "size"});
-    register_service(&EHMTX::show_rindicator, "show_rindicator", {"r", "g", "b", "size"});
-    register_service(&EHMTX::show_lindicator, "show_lindicator", {"r", "g", "b", "size"});
-
-    register_service(&EHMTX::set_today_color, "set_today_color", {"r", "g", "b"});
-    register_service(&EHMTX::set_weekday_color, "set_weekday_color", {"r", "g", "b"});
-    register_service(&EHMTX::set_clock_color, "set_clock_color", {"r", "g", "b"});
-
-    register_service(&EHMTX::del_screen, "del_screen", {"icon_name", "mode"});
-    register_service(&EHMTX::force_screen, "force_screen", {"icon_name", "mode"});
-
-    register_service(&EHMTX::full_screen, "full_screen", {"icon_name", "lifetime", "screen_time"});
-    register_service(&EHMTX::icon_screen, "icon_screen", {"icon_name", "text", "lifetime", "screen_time", "default_font", "r", "g", "b"});
-    register_service(&EHMTX::rainbow_icon_screen, "rainbow_icon_screen", {"icon_name", "text", "lifetime", "screen_time", "default_font"});
-
-    register_service(&EHMTX::text_screen, "text_screen", {"text", "lifetime", "screen_time", "default_font", "r", "g", "b"});
-    register_service(&EHMTX::rainbow_text_screen, "rainbow_text_screen", {"text", "lifetime", "screen_time", "default_font"});
-
-    register_service(&EHMTX::clock_screen, "clock_screen", {"lifetime", "screen_time", "default_font", "r", "g", "b"});
-
-    register_service(&EHMTX::rainbow_clock_screen, "rainbow_clock_screen", {"lifetime", "screen_time", "default_font"});
-
-    register_service(&EHMTX::date_screen, "date_screen", {"lifetime", "screen_time", "default_font", "r", "g", "b"});
-    register_service(&EHMTX::rainbow_date_screen, "rainbow_date_screen", {"lifetime", "screen_time", "default_font"});
-
-    register_service(&EHMTX::blank_screen, "blank_screen", {"lifetime", "screen_time"});
-
-    register_service(&EHMTX::set_brightness, "brightness", {"value"});
-#ifndef USE_ESP8266
-  #ifdef EHMTXv2_BOOTLOGO
-    register_service(&EHMTX::display_boot_logo, "display_boot_logo");
-    register_service(&EHMTX::display_version, "display_version");
-  #endif
-    register_service(&EHMTX::color_gauge, "color_gauge", {"colors"});
-    register_service(&EHMTX::bitmap_screen, "bitmap_screen", {"icon", "lifetime", "screen_time"});
-    register_service(&EHMTX::bitmap_small, "bitmap_small", {"icon", "text", "lifetime", "screen_time", "default_font", "r", "g", "b"});
-#endif
-
     ESP_LOGD(TAG, "Setup and running!");
   }
 
